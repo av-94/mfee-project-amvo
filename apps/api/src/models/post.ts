@@ -4,7 +4,7 @@ interface IPost extends Document {
   title: string;
   image: string;
   description: string;
-  category: string;
+  category: mongoose.Schema.Types.ObjectId;
   comments: [{ type: Schema.Types.ObjectId }];
 }
 
@@ -23,7 +23,7 @@ export const postSchema = new Schema<IPost>(
       required: [true, 'Property is required']
     },
     category: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
       required: [true, 'Property is required'],
       ref: 'Category'
     },
